@@ -1,0 +1,82 @@
+[gd_scene load_steps=10 format=3 uid="uid://6hx4g56cjbpx"]
+
+[ext_resource type="Script" uid="uid://bun6m65px3826" path="res://script/geegee.gd" id="1_6xrus"]
+[ext_resource type="PackedScene" uid="uid://dplr6d87wwyem" path="res://scene/death.tscn" id="2_6xrus"]
+[ext_resource type="PackedScene" uid="uid://cfxq03kbqu0jy" path="res://scene/zombo.tscn" id="3_yooe4"]
+[ext_resource type="Texture2D" uid="uid://dx3f1leia5d3n" path="res://assets/Rocks_Diffuse.png" id="4_4tsep"]
+[ext_resource type="PackedScene" uid="uid://0h20tbqp7ost" path="res://assets/CommonTree_3.fbx" id="5_lwxqu"]
+[ext_resource type="PackedScene" uid="uid://dfqxm5tq2lll" path="res://assets/TwistedTree_2.fbx" id="6_anbbq"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_yooe4"]
+size = Vector3(120, 2, 120)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4tsep"]
+albedo_texture = ExtResource("4_4tsep")
+
+[sub_resource type="BoxMesh" id="BoxMesh_yooe4"]
+material = SubResource("StandardMaterial3D_4tsep")
+size = Vector3(120, 2, 120)
+
+[node name="Node3D" type="Node3D"]
+script = ExtResource("1_6xrus")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -10.29)
+shape = SubResource("BoxShape3D_yooe4")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -10.297215)
+mesh = SubResource("BoxMesh_yooe4")
+
+[node name="GeeGee" parent="." instance=ExtResource("2_6xrus")]
+transform = Transform3D(0.8381854, 0, 0.54538536, 0, 1, 0, -0.54538536, 0, 0.8381854, -3.7823086, 0, 0)
+
+[node name="GeeGee2" parent="." instance=ExtResource("2_6xrus")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.4790983, 0, 0)
+
+[node name="GeeGee3" parent="." instance=ExtResource("2_6xrus")]
+transform = Transform3D(0.24672842, 0, 0.9690847, 0, 1, 0, -0.9690847, 0, 0.24672842, -17.89685, 0, 5.187165)
+
+[node name="zombo" parent="." instance=ExtResource("3_yooe4")]
+transform = Transform3D(2.9850156, 0, 0.29947013, 0, 3, 0, -0.29947013, 0, 2.9850156, 1.3570919, 0, -7.65744)
+
+[node name="zombo2" parent="." instance=ExtResource("3_yooe4")]
+transform = Transform3D(2.1162791, 0, 2.1263497, 0, 3.0000005, 0, -2.1263497, 0, 2.1162791, -15.968, 0, -7.657)
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(0.83346033, -0.16367139, 0.52778363, -0.0046601533, 0.95301145, 0.30289832, -0.5525597, -0.2549133, 0.7935345, 7.9600596, 10.751339, 9.841881)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.5737142, -0.3172774, 0.7551072, -0.052619413, 0.9057424, 0.42054957, -0.8173634, -0.28100854, 0.5029424, 1.7824774, 13.636898, 10.102354)
+shadow_enabled = true
+shadow_opacity = 0.3
+
+[node name="CommonTree_3" parent="." instance=ExtResource("5_lwxqu")]
+transform = Transform3D(-1.3113416e-07, 0, 3, 0, 3, 0, -3, 0, -1.3113416e-07, -29.640503, 0, -37.32826)
+
+[node name="CommonTree_5" parent="." instance=ExtResource("5_lwxqu")]
+transform = Transform3D(-4, 0, -3.496911e-07, 0, 4, 0, 3.496911e-07, 0, -4, -38.016487, 0, -19.246681)
+
+[node name="CommonTree_6" parent="." instance=ExtResource("5_lwxqu")]
+transform = Transform3D(2.828427, 0, 2.828427, 0, 4, 0, -2.828427, 0, 2.828427, -47.69978, 0, -5.995989)
+
+[node name="CommonTree_7" parent="." instance=ExtResource("5_lwxqu")]
+transform = Transform3D(2.828427, 0, 2.828427, 0, 4, 0, -2.828427, 0, 2.828427, 13.901249, 0, -17.556168)
+
+[node name="CommonTree_4" parent="." instance=ExtResource("5_lwxqu")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -9.537142, 0, -37.32826)
+
+[node name="CommonTree_8" parent="." instance=ExtResource("5_lwxqu")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -38.14685, 0, 2.9597397)
+
+[node name="TwistedTree_2" parent="." instance=ExtResource("6_anbbq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30.783855, -0.7985247, -8.209159)
+
+[node name="TwistedTree_3" parent="." instance=ExtResource("6_anbbq")]
+transform = Transform3D(1.3382611, 0, 1.4862897, 0, 2, 0, -1.4862897, 0, 1.3382611, -14.461242, -0.7985247, -26.822735)
+
+[node name="TwistedTree_4" parent="." instance=ExtResource("6_anbbq")]
+transform = Transform3D(0.3882286, 0, 1.4488888, 0, 1.5, 0, -1.4488888, 0, 0.3882286, 6.0568666, -0.7985247, -26.822735)
